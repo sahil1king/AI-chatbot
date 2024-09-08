@@ -9,7 +9,7 @@ app.use(express.static('public')); // Serve frontend files
 
 // Configure OpenAI API with your key
 const configuration = new Configuration({
-    apiKey: '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',  // Replace with your OpenAI API key
+    apiKey: '',  // Replace with your OpenAI API key
 });
 const openai = new OpenAIApi(configuration);
 
