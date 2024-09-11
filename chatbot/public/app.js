@@ -12,7 +12,7 @@ function sendMessage() {
         document.getElementById('userInput').value = ''; // Clear input field
 
         // Send user input to the backend and get a response
-        fetch('/get-book-suggestion', {
+        fetch('/chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -40,19 +40,3 @@ function displayMessage(text, className) {
     chatBox.appendChild(messageDiv);
     chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom
 }
-// Send request to the backend API when the user sends a message
-fetch('/chat', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ message: userInput }),  // Pass user's input
-})
-.then(response => response.json())
-.then(data => {
-    displayMessage(data.reply, 'bot-message');  // Display the bot's response
-})
-.catch(error => {
-    console.error('Error:', error);
-});
-
