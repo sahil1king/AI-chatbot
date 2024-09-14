@@ -9,19 +9,23 @@
 <body>
     <div class="chat-container">
         <div class="chat-header">
-            <h2>AI Book Recommendation Chatbot</h2>
+            <h2>Study resource management</h2>
         </div>
         <div class="chat-box" id="chat-box">
             <div class="bot-message">
-                <p>Hello! I'm here to help you find books for your B.Tech CSE subjects. Ask me anything about your subjects!</p>
+                <p>Hello! I'm here to help you find books for your B.Tech CSE subjects or give you food recipes!</p>
             </div>
         </div>
         <div class="chat-input">
+            <select id="modeSelect">
+                <option value="book">Book Recommendation</option>
+                <option value="recipe">Food Recipe</option>
+            </select>
             <input type="text" id="userInput" placeholder="Type your question..." autofocus>
             <button id="sendBtn">Send</button>
         </div>
     </div>
-
     <script src="app.js"></script>
+    
 </body>
 </html>
