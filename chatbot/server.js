@@ -9,12 +9,18 @@ app.use(express.static('public'));
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
-// Endpoint to handle chatbot interaction
 app.post('/chat', async (req, res) => {
     const userMessage = req.body.message;
+    const mode = req.body.mode; // Get the mode
 
     try {
-        const prompt = `User is asking for book recommendations. Topic: "${userMessage}". Suggest relevant books`;
+        let prompt;
+        if (mode === 'book') {
+            prompt = `User is asking for book recommendations. Topic: "${userMessage}". Suggest relevant books.`;
+        } else if (mode === 'recipe') {
+            prompt = `User is asking for a food recipe. Dish: "${userMessage}". Provide the recipe.`;
+        }
+
         const result = await model.generateContent(prompt);
         const reply = result.response.text().trim();
         res.json({ reply });
