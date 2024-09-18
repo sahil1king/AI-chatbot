@@ -5,27 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Chatbot for Students</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="chat-container">
-        <div class="chat-header">
-            <h2>Study resource management</h2>
-        </div>
-        <div class="chat-box" id="chat-box">
+        <header class="chat-header">
+            <h1>Study Resource Manager</h1>
+            <p>Your personal assistant for book recommendations and recipes</p>
+        </header>
+        <main class="chat-box" id="chat-box">
             <div class="bot-message">
-                <p>Hello! I'm here to help you find books for your B.Tech CSE subjects or give you food recipes!</p>
+                <p>Hello! I'm here to help you find B.Tech CSE books or suggest delicious recipes!</p>
             </div>
-        </div>
-        <div class="chat-input">
-            <select id="modeSelect">
-                <option value="book">Book Recommendation</option>
-                <option value="recipe">Food Recipe</option>
+
+            <!-- <div id="loader" style="display: flex; justify-content: center;">
+                <img style="border-radius: 50%;" height="40px" src="./audio-beat.gif" alt="">
+               </div> -->
+
+     
+
+        </main>
+        <footer class="chat-input">
+            <select id="modeSelect" aria-label="Select mode">
+                <option value="book">Book Recommendations</option>
+                <option value="recipe">Food Recipes</option>
             </select>
-            <input type="text" id="userInput" placeholder="Type your question..." autofocus>
-            <button id="sendBtn">Send</button>
-        </div>
+            <input type="text" id="userInput" placeholder="Ask me anything..." autofocus aria-label="User input">
+
+         
+            <button id="sendBtn" aria-label="Send">Send</button>
+        </footer>
     </div>
     <script src="app.js"></script>
-    
 </body>
 </html>
