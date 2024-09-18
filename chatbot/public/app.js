@@ -6,6 +6,10 @@ document.getElementById('userInput').addEventListener('keydown', function(event)
 });
 
 function sendMessage() {
+
+
+
+ 
     const userInput = document.getElementById('userInput').value;
     const mode = document.getElementById('modeSelect').value; // Get the selected mode
     if (userInput.trim() !== '') {
@@ -20,6 +24,9 @@ function sendMessage() {
         })
         .then(response => response.json())
         .then(data => {
+     
+        
+
             displayMessage(data.reply, 'bot-message');
         })
         .catch(error => {
@@ -37,5 +44,9 @@ function displayMessage(text, className) {
     messagePara.innerText = text;
     messageDiv.appendChild(messagePara);
     chatBox.appendChild(messageDiv);
+
+let div = document.createElement('div');
+div.innerHTML = `<img style="border-radius: 50%;" height="40px" src="./audio-beat.gif" alt="">`
+chatBox.appendChild(div);
     chatBox.scrollTop = chatBox.scrollHeight;
 }
